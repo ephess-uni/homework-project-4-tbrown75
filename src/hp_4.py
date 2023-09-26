@@ -9,7 +9,10 @@ def reformat_dates(old_dates):
     """Accepts a list of date strings in format yyyy-mm-dd, re-formats each
     element to a format dd mmm yyyy--01 Jan 2001."""
     format_dates = "%d %b %Y"
-    datetime.strptime(*old_dates, format_dates)
+    listed_dates = []
+    for date in old_dates:
+        listed_dates = datetime.strptime([*old_dates], format_dates)
+    return listed_dates
 
 
 def date_range(start, n):
