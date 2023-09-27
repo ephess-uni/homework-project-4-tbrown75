@@ -11,7 +11,7 @@ def reformat_dates(old_dates):
     format_dates = "%d %b %Y"
     listed_dates = []
     for date in old_dates:
-        listed_dates = datetime.strptime([*old_dates], format_dates)
+        listed_dates = datetime.strptime(date, format_dates)
     return listed_dates
 
 
@@ -19,7 +19,21 @@ def date_range(start, n):
     """For input date string `start`, with format 'yyyy-mm-dd', returns
     a list of of `n` datetime objects starting at `start` where each
     element in the list is one day after the previous."""
-    pass
+    range_list = []
+    date_string = start
+    format_string = "%Y-%m-%d %H:%M:%S"
+    if not isinstance(date_string, str) or not isinstance(n, int):
+       raise TypeError
+    else:
+        range_ = datetime.strptime(date_string, format_string)
+        start_date = timedelta(days=+1)
+
+    return range_list.append(range_ + (start_date + n))
+
+
+
+
+
 
 
 def add_date_range(values, start_date):
