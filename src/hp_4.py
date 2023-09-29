@@ -22,7 +22,7 @@ def date_range(start, n):
     a list of of `n` datetime objects starting at `start` where each
     element in the list is one day after the previous."""
     range_list = []
-    format_string = "%Y-%m-%d %H:%M:%S"
+    format_string = "%Y-%m-%d"
     start_date_time = datetime.strptime(start, format_string)
     range_list.append(start_date_time)
     if not isinstance(start, str) or not isinstance(n, int):
