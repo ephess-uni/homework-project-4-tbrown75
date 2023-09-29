@@ -12,7 +12,7 @@ def reformat_dates(old_dates):
     format_str_p_time = "%Y-%m-%d"
     listed_dates = []
     for date in old_dates:
-        date_time_object = date.strptime(format_str_p_time)
+        date_time_object = datetime.strptime(date, format_str_p_time)
         listed_dates.append(date_time_object.strftime(format_dates))
     return listed_dates
 
