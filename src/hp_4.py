@@ -22,14 +22,14 @@ def date_range(start, n):
     a list of of `n` datetime objects starting at `start` where each
     element in the list is one day after the previous."""
     range_list = []
-    date_string = f'{start} 00:00:00'
-    format_string = "%Y-%m-%d %H:%M:%S"
+    date_string = f'{start} 00:00'
+    format_string = "%Y-%m-%d %H:%M"
     start_date_time = datetime.strptime(date_string, format_string)
     range_list.append(start_date_time)
     if not isinstance(date_string, str) or not isinstance(n, int):
         raise TypeError
     else:
-        for days_to_add in range(1, n + 1):
+        for days_to_add in range(1, n):
             day = timedelta(days=days_to_add)
             current_date = start_date_time + day
             range_list.append(current_date)
