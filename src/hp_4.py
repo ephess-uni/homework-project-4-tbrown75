@@ -24,13 +24,17 @@ def date_range(start, n):
     range_list = []
     date_string = start
     format_string = "%Y-%m-%d %H:%M:%S"
+    start_date_time = datetime.strptime(start, format_string)
+    range_list.append(start_date_time)
     if not isinstance(date_string, str) or not isinstance(n, int):
-       raise TypeError
+        raise TypeError
     else:
-        range_ = datetime.strptime(date_string, format_string)
-        start_date = timedelta(days=+1)
+        for days_to_add in range(1, n + 1):
+            day = timedelta(days=days_to_add)
+            current_date = start_date_time + day
+            range_list.append(current_date)
 
-    return range_list.append(range_ + (start_date + n))
+    return range_list
 
 
 
