@@ -83,13 +83,19 @@ def test___add_date_range___returns_correct_values_input_2():
 
 
 @pytest.fixture
-def book_returns_short():
-    return 'tests/fixtures/book_returns_short.csv'
+def book_returns_short(request):
+    return path.join(
+        request.config.rootdir,
+        'tests/fixtures/book_returns_short.csv',
+    )
 
 
 @pytest.fixture
-def book_returns():
-    return 'tests/fixtures/book_returns.csv'
+def book_returns(request):
+    return path.join(
+        request.config.rootdir,
+        'tests/fixtures/book_returns.csv',
+    )
 
 
 @pytest.fixture
